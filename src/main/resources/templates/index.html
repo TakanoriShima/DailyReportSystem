@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>日報管理システム</title>
+</head>
+<body>
+    <h1>日報管理システム</h1>
+        <form method="post" th:action="@{/logout}">
+        <input type="submit" value="ログアウト">
+        </form>
+
+    <p><a th:href="@{employee/list}">従業員一覧へ</a></p>
+</body>
+</html>
