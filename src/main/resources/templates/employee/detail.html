@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>DRS</title>
+
+<th:blick th:fragment="lib">
 <link rel="stylesheet" th:href="@{/css/employee/detail.css}">
-</head>
-<body>
+</th:blick>
+
+<div th:fragment="main">
     <h2 th:text="|id:${employee.id}の従業員情報 詳細ページ|"></h2>
     <table>
         <tr>
@@ -31,5 +31,5 @@
     </table>
     <p><a th:href="@{/employee/update/{id}/(id=${employee.id})}">この従業員情報を編集する</a></p>
     <p><a th:href="@{/employee/list}">一覧に戻る</a><p>
-</body>
+</div>
 </html>

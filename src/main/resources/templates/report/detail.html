@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="lib">
+<link rel="stylesheet" th:href="@{/css/report/list.css}">
+</th:block>
+
+<div th:fragment="main">
+    <h2>日報 詳細ページ</h2>
+    <table>
+        <tr>
+            <th>氏名</th>
+            <td th:text="${report.employee.name}"></td>
+        </tr>
+        <tr>
+            <th>日付</th>
+            <td th:text="${report.reportDate}"></td>
+        </tr>
+        <tr>
+            <th>タイトル</th>
+            <td th:text="${report.title}"></td>
+        </tr>
+        <tr>
+            <th>内容</th>
+            <td th:text="${report.content}"></td>
+        </tr>
+        <tr>
+            <th>登録日時</th>
+            <td th:text="${report.createdAt}"></td>
+        </tr>
+        <tr>
+            <th>更新日時</th>
+            <td th:text="${report.updatedAt}"></td>
+        </tr>
+    </table>
+    <a th:href="@{/report/update/{id}/(id=${report.id})}">この日報を編集する</a>
+    <p><a th:href="@{/report/list}">一覧に戻る</a><p>
+</div>
+</html>

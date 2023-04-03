@@ -33,28 +33,44 @@ public class EmployeeController {
     public String getList(Model model) {
         // 全件検索結果をModelに登録
         model.addAttribute("employeelist", service.getEmployeeList());
-        // employee/list.htmlに遷移
-        return "employee/list";
+        
+        // 
+        model.addAttribute("title", "タイトル");
+        model.addAttribute("lib", "employee/list::lib");
+        model.addAttribute("main", "employee/list::main");
+        return "common/layout";
     }
 
     /** 詳細画面を表示 */
     @GetMapping("/detail/{id}")
     public String getDetail(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("employee", service.getEmployee(id));
-        return "employee/detail";
+
+        model.addAttribute("title", "従業員詳細");
+        model.addAttribute("lib", "employee/detail::lib");
+        model.addAttribute("main", "employee/detail::main");
+        // employee/list.htmlに遷移
+        return "common/layout";
     }
 
     /** 登録画面を表示 */
     @GetMapping("/register")
-    public String getRegister(@ModelAttribute Employee employee) {
-        return "employee/register";
+    public String getRegister(@ModelAttribute Employee employee, Model model) {
+        model.addAttribute("title", "従業員登録");
+        model.addAttribute("lib", "employee/register::lib");
+        model.addAttribute("main", "employee/register::main");
+
+        return "common/layout";
     }
 
     /** 登録処理 */
     @PostMapping("/register")
-    public String postRegister(@Validated Employee employee, BindingResult res) {
+    public String postRegister(@Validated Employee employee, BindingResult res, Model model) {
         if(res.hasErrors()) {
-            return getRegister(employee);
+            model.addAttribute("title", "従業員登録");
+            model.addAttribute("lib", "employee/register::lib");
+            model.addAttribute("main", "employee/register::main");
+            return getRegister(employee, model);
         }
         employee.setDeleteFlag(0);
         Authentication auth = employee.getAuthentication();
@@ -62,6 +78,11 @@ public class EmployeeController {
         auth.setPassword(passwordEncoder.encode(auth.getPassword()));
 
         service.saveEmployee(employee);
+
+        model.addAttribute("title", "従業員登録");
+        model.addAttribute("lib", "employee/list::lib");
+        model.addAttribute("main", "employee/list::main");
+
         return "redirect:/employee/list";
     }
 
@@ -69,7 +90,12 @@ public class EmployeeController {
     @GetMapping("/update/{id}/")
     public String getUpdate(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("employee", service.getEmployee(id));
-        return "employee/update";
+
+        model.addAttribute("title", "従業員登録");
+        model.addAttribute("lib", "employee/update::lib");
+        model.addAttribute("main", "employee/update::main");
+
+        return "common/layout";
     }
 
     /** 編集処理 */
@@ -85,6 +111,11 @@ public class EmployeeController {
         auth.setRole(employee.getAuthentication().getRole());
 
         service.saveEmployee(emp);
+
+        model.addAttribute("title", "従業員登録");
+        model.addAttribute("lib", "employee/update::lib");
+        model.addAttribute("main", "employee/update::main");
+
         return "redirect:/employee/list";
     }
 

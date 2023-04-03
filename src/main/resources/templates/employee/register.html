@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>DRS</title>
+
+<th:block th:fragment="lib">
 <link rel="stylesheet" th:href="@{/css/employee/register.css}">
-</head>
+</th:block>
+
+<div th:fragment="main">
 <body>
     <h2>従業員 新規登録ページ</h2>
     <form method="post" th:action="@{/employee/register}" th:object="${employee}">
@@ -35,5 +36,5 @@
         <input type="submit" value="登録">
     </form>
     <p><a th:href="@{/employee/list}">一覧に戻る</a><p>
-</body>
+</div>
 </html>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>DRS</title>
+
+<th:block th:fragment="lib">
 <link rel="stylesheet" th:href="@{/css/employee/update.css}">
-</head>
-<body>
+</th:block>
+
+<div th:fragment="main">
     <h2 th:text="|id:${employee.id}の従業員情報 編集ページ|"></h2>
     <p>（パスワードは変更する場合のみ入力してください）</p>
     <form th:method="post" th:action="@{/employee/update/{id}/(id=${employee.id})}" th:object="${employee}">
@@ -31,5 +31,5 @@
         <p><a th:href="@{/employee/delete/{id}/(id=${employee.id})}">この従業員情報を削除する</a></p>
         <p><a th:href="@{/employee/list}">一覧に戻る</a></p>
     </form>
-</body>
+</div>
 </html>

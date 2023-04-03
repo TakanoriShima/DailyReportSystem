@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="lib">
+<link rel="stylesheet" th:href="@{/css/report/list.css}">
+</th:block>
+
+<div th:fragment="main">
+    <h1>日報</h1>
+    <h2>編集する</h2>
+
+        <form method="post" th:action="@{/report/update/{id}/(id=${id})}" th:object="${report}">
+
+<!--
+            <label for="id">レポートID</label>
+            <input type="hidden" id="id" name="id" th:alue="*{id}" th:text="*{id}" th:field="*{id}">
+            <br>
+-->
+
+            <label for="reportDate">日付</label>
+            <br>
+            <input type="date" th:field="*{reportDate}">
+            <br>
+
+            <label for="employee.name">氏名</label>
+            <br>
+            <input type="hidden" id="employee.name" name="employee.name" th:value="*{employee.name}" th:text="*{employee.name}" th:field="*{employee.name}">
+            <br>
+
+<!--
+            <label for="employee.id">ID</label><br>
+            <input type="hidden" id="employee.id" name="employee.id" th:value="*{employee.id}" th:text="*{employee.id}" th:field="*{employee.id}">
+            <br>
+-->
+
+            <label for="title">タイトル</label>
+            <br>
+            <input type="text" th:field="*{title}">
+            <br>
+
+            <label for="content">内容</label>
+            <br>
+            <input type="text" th:field="*{content}">
+            <br>
+            <br>
+
+            <input type="submit" value="投稿する"><br>
+            <a th:href="@{/report/list}">登録せずに一覧に戻る</a>
+
+        </form>
+
+</div>
+</html>

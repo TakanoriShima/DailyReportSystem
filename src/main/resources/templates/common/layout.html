@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+<meta charset="UTF-8">
+<title th:text="${title} ?: _">DRS</title>
+<link rel="stylesheet" th:href="@{/css/common/common.css}">
+<th:block th:replace="__${lib}__ ?: _"></th:block>
+</head>
+
+<body>
+    <div id="header">
+        <h1><a th:href="@{/}">日報管理システム</a></h1>
+        <nav>
+            <ul class="main-nav">
+                <li><a sec:authorize-url="GET/管理者" th:href="@{/employee/list}">従業員管理</a></li>
+                <li><a th:href="@{/report/list}">日報管理</a></li>
+                <li><span th:text="${#authentication.name}"></span></li>
+                <li>
+                    <form method="post" th:action="@{/logout}">
+                        <input type="submit" value="ログアウト">
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- メインコンテンツの埋め込み場所 -->
+    <div id="main" th:include="__${main}__">
+    </div>
+
+    <div id="footer">
+        <p>フッター</p>
+    </div>
+</body>
+
+</html>
