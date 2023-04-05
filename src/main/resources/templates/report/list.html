@@ -23,7 +23,7 @@
             <td><a th:href="@{detail/{id}/(id=${report.id})}">詳細を見る</a></td>
         </tr>
     </table>
-
+    <p th:text="|（全${reportlist.size}件）|"></p>
     <a th:href="@{/report/create}">新規レポートの登録</a>
 </div>
 </html>
