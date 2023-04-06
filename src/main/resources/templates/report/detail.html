@@ -33,7 +33,9 @@
             <td th:text="${report.updatedAt}"></td>
         </tr>
     </table>
-    <a th:href="@{/report/update/{id}/(id=${report.id})}">この日報を編集する</a>
+    <div th:if = "${report.employee.authentication.code} == ${#authentication.name}">
+        <a th:href="@{/report/update/{id}/(id=${report.id})}">この日報を編集する</a>
+    </div>
     <p><a th:href="@{/report/list}">一覧に戻る</a><p>
 </div>
 </html>

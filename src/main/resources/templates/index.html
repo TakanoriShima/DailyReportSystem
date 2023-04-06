@@ -36,7 +36,7 @@
                 <td th:text="${report.employee.name}"></td>
                 <td th:text="${report.reportDate}"></td>
                 <td th:text="${report.title}"></td>
-                <td><a th:href="@{detail/{id}/(id=${report.id})}">詳細を見る</a></td>
+                <td><a th:href="@{report/detail/{id}/(id=${report.id})}">詳細を見る</a></td>
             </tr>
         </table>
         <p th:text="|（全${myreportlist.size}件）|"></p>

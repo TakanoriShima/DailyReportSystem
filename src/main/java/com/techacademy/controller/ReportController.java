@@ -29,7 +29,7 @@ public class ReportController {
         /** 全件検索結果をModelに登録 */
         model.addAttribute("reportlist", service.getReportList());
 
-        model.addAttribute("title", "従業員登録");
+        model.addAttribute("title", "日報一覧");
         model.addAttribute("lib", "report/list::lib");
         model.addAttribute("main", "report/list::main");
 
@@ -41,7 +41,7 @@ public class ReportController {
     public String getDetail(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("report", service.getReport(id));
 
-        model.addAttribute("title", "従業員登録");
+        model.addAttribute("title", "日報詳細");
         model.addAttribute("lib", "report/detail::lib");
         model.addAttribute("main", "report/detail::main");
 
@@ -59,7 +59,7 @@ public class ReportController {
         report.setEmployee(employee);
         model.addAttribute("report", report);
 
-        model.addAttribute("title", "従業員登録");
+        model.addAttribute("title", "日報登録登録");
         model.addAttribute("lib", "report/create::lib");
         model.addAttribute("main", "report/create::main");
 
@@ -81,7 +81,7 @@ public class ReportController {
     public String updateReport(@PathVariable("id") Integer id, Model model) {
         model.addAttribute("report", service.getReport(id));
 
-        model.addAttribute("title", "従業員登録");
+        model.addAttribute("title", "日報編集");
         model.addAttribute("lib", "report/update::lib");
         model.addAttribute("main", "report/update::main");
 

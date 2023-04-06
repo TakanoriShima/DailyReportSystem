@@ -6,8 +6,7 @@
 </th:block>
 
 <div th:fragment="main">
-    <h1>日報</h1>
-    <h2>編集する</h2>
+    <h1>日報 編集ページ</h1>
 
         <form method="post" th:action="@{/report/update/{id}/(id=${id})}" th:object="${report}">
 
