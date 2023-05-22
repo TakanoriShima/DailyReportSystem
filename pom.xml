@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>com.techacademy</groupId>
 	<artifactId>DailyReportSystem</artifactId>
+	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>DailyReportSystem</name>
 	<description>the project of Daily Report System</description>
@@ -62,6 +63,16 @@
 		<dependency>
 			<groupId>org.thymeleaf.extras</groupId>
 			<artifactId>thymeleaf-extras-springsecurity5</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+		  <groupId>org.springframework.boot</groupId>
+		  <artifactId>spring-boot-starter-tomcat</artifactId>
+		  <scope>provided</scope>
 		</dependency>
 	</dependencies>
 
